@@ -14,7 +14,9 @@ kotlin {
             }
         }
     }
-    
+
+    task("testClasses")
+
     jvm("desktop")
     
     listOf(
@@ -42,7 +44,9 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation("com.github.kittinunf.fuel:fuel:3.0.0-alpha1")
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
+            implementation("io.ktor:ktor-client-core:2.3.11")
+            implementation("io.ktor:ktor-client-cio:2.3.11")
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -71,7 +75,7 @@ android {
         }
     }
     buildTypes {
-        getByName("release") {
+        getByName("release") {;
             isMinifyEnabled = false
         }
     }
@@ -81,6 +85,7 @@ android {
     }
     dependencies {
         debugImplementation(libs.compose.ui.tooling)
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
     }
 }
 

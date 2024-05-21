@@ -4,16 +4,22 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowPosition
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
+import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.painterResource
+import ultrasonic_emitter_app.composeapp.generated.resources.Res
+import ultrasonic_emitter_app.composeapp.generated.resources.icon2
 
+@OptIn(ExperimentalResourceApi::class)
 fun main() = application {
     val state = rememberWindowState(
-        size = DpSize(400.dp, 600.dp),
+        size = DpSize(412.dp, 892.dp),
         position = WindowPosition(300.dp, 300.dp)
     )
     Window(
         onCloseRequest = ::exitApplication,
-        title = "ultrasonic-emitter-app",
-        state = state
+        title = "Ultrasonic Emitter App",
+        state = state,
+        icon = painterResource(Res.drawable.icon2)
     ) {
         App()
     }
